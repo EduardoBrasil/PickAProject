@@ -1,37 +1,59 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<%= form_for @project, :html => { :class => "form-horizontal project" } do |f| %>
 
-      <ul>
-      <% @project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @project.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@project[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :type_project %><br>
-    <%= f.text_field :type_project %>
+  <div class="control-group">
+    <%= f.label :type_project, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :type_project, :class => 'form-control' %>
+    </div>
+    <%= error_span(@project[:type_project]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@project[:description]) %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'form-control' %>
+    </div>
+    <%= error_span(@project[:status]) %>
   </div>
-  <div class="field">
-    <%= f.label :percentage %><br>
-    <%= f.number_field :percentage %>
+  <div class="control-group">
+    <%= f.label :percentage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :percentage, :class => 'form-control' %>
+    </div>
+    <%= error_span(@project[:percentage]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            projects_path, :class => 'btn btn-default' %>
+
 <% end %>
