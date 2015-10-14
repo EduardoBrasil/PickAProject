@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# adding codeclimate gem
+gem "codeclimate-test-reporter", group: :test, require: nil
 # Less-rails
 gem "less-rails"
 # twitter bootstrap
