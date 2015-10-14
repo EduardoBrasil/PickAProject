@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/Duerno/PickAProject.svg?label=ready&title=Ready)](http://waffle.io/Duerno/PickAProject)
+{<img alt='Stories in Ready' src='https://badge.waffle.io/Duerno/PickAProject.svg?label=ready&title=Ready' />}[https://waffle.io/Duerno/PickAProject]
 
 == README
 
