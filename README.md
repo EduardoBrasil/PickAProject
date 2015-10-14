@@ -1,4 +1,7 @@
-{<img alt='Stories in Ready' src='https://badge.waffle.io/Duerno/PickAProject.svg?label=ready&title=Ready' />}[https://waffle.io/Duerno/PickAProject]
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Duerno/PickAProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Stories in Ready](https://badge.waffle.io/Duerno/PickAProject.svg?label=ready&title=Ready)](http://waffle.io/Duerno/PickAProject)
+
+
 
 == README
 
