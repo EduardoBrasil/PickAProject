@@ -9,10 +9,10 @@
   </head>
   <body>
     <!-- Navigation Bar -->
-    <%= render "layouts/header" %>
+    <div class="nav"><%= render "layouts/header" %></div>
     <!-- Content -->
-    <%= yield %>
+    <div class="wrapper"><%= yield %></div>
     <!-- Footer -->
-    <%= render "layouts/footer" %>
+    <div class="footer"><%= render "layouts/footer" %></div>
   </body>
 </html>

@@ -16,3 +16,18 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+
+  /* Sets the minimum height of the wrapper div to ensure the footer reaches the bottom */
+  function setWrapperMinHeight() {
+    $('.wrapper').css('minHeight', window.innerHeight - $('.nav').height() - $('.footer').height() - 10);
+  }
+  /* Make sure the main div gets resized on ready */
+  setWrapperMinHeight();
+
+  /* Make sure the wrapper div gets resized whenever the screen gets resized */
+  window.onresize = function() {
+    setWrapperMinHeight();
+  }
+});
