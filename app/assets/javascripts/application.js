@@ -31,3 +31,15 @@ $(function(){
     setWrapperMinHeight();
   }
 });
+
+$(document).ready(function() {
+	$('.nav ul li').hover(
+    function(){
+        $(this).addClass('active');
+        $(this).css("color","green");
+    },
+    function(){
+        $(this).removeClass('active');
+    }
+  );
+});
