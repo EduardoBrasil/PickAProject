@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PickAProject</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= nav_bar :brand => "Pick A Project", :brand_link => Project %>
-<div class="navbar">
-  <div class="container">
-      <a class="navbar-brand" href="http://localhost:3000/users">
-       Usuarios
-      </a>
-      <a class="navbar-brand" href="http://localhost:3000/projects">
-       Projetos
-      </a>
-  </div>
-</div>
-
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Pick a Project</title>
+    <link href="stylesheets/_bootswatch.scss" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <%= render "layouts/header" %>
+    <!-- Content -->
+    <%= yield %>
+    <!-- Footer -->
+    <%= render "layouts/footer" %>
+  </body>
 </html>

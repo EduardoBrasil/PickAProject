@@ -14,3 +14,34 @@
  *= require_self
  */
 
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import flatly variables
+@import "bootswatch/flatly/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/flatly/bootswatch";
+
+body {
+	min-height: 100%;
+}
+
+.navbar {
+	border-radius: 0px;
+}
+
+.footer {
+	clear: both;
+	border-top: 1px solid $gray-darker;
+	background-color: $gray-lighter;
+  color: $navbar-default-bg;
+
+  .container {
+  	height: 250px;
+  	border: 1px solid blue;
+  }
+}
