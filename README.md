@@ -1,6 +1,7 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Duerno/PickAProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Stories in Ready](https://badge.waffle.io/Duerno/PickAProject.svg?label=ready&title=Ready)](http://waffle.io/Duerno/PickAProject)
 <a href="https://codeclimate.com/github/Duerno/PickAProject"><img src="https://codeclimate.com/github/Duerno/PickAProject/badges/gpa.svg" /></a>
+[![Code Climate](https://codeclimate.com/github/EduardoBrasil/PickAProject/badges/gpa.svg)](https://codeclimate.com/github/EduardoBrasil/PickAProject)
 
 
 
