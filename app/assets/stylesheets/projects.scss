@@ -1,3 +1,48 @@
-// Place all the styles related to the projects controller here.
+// Place all the styles related to the each-projects-container controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-header {
+	text-align: center;	
+}
+
+.projects-container {
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: block;
+	text-align: center;
+}
+
+.inner-projects-container {
+	margin:auto;
+	display: inline;
+	a:hover {
+  	background-color: transparent;
+  }
+}
+
+.each-project {
+	padding: 1px;
+	margin: 2%;
+  width: 27%;
+  display: inline-block;
+  background-color: #dbdbdb; /* Gray Dark */
+}
+
+.each-project .image {
+ 	width: 100%;
+}
+.each-project .title-author {
+	margin-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+.each-project img {
+	width: auto;
+	height: 700x;
+	max-height: 700px;
+}
+
+.new-p-btn {
+	text-align: center;
+}
