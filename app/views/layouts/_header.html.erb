@@ -9,13 +9,15 @@
         <span class="icon-bar"></span>
       </button> 
       -->
-      <a class="navbar-brand" href="#">Pick a Project</a>
+      <%= link_to(root_url) do %>
+        <strong class="navbar-brand">Pick a Project</strong>
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Start a Project</a></li>
+        <li><%= link_to "Projects", projects_path %></li>
+        <li><%= link_to "Start a Project", new_project_path %></li>
         <li><a href="#">Ranking</a></li>
         <!--
         <li class="dropdown">
@@ -35,7 +37,7 @@
       <form class="navbar-form navbar-left" role="search">
         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         <div class="form-group">
-          <input class="form-control" placeholder="Search a Project" type="text" size="50">
+          <input class="form-control" placeholder="Search a Project" type="text" size="35">
         </div>        
       </form>
       <ul class="nav navbar-nav navbar-right">
