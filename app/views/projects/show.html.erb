@@ -4,10 +4,12 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @project.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type_project) %>:</strong></dt>
-  <dd><%= @project.type_project %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:author) %>:</strong></dt>
+  <dd><%= @project.author %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @project.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:project_type) %>:</strong></dt>
+  <dd><%= @project.project_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @project.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
