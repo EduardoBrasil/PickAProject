@@ -45,4 +45,13 @@
 
 .new-p-btn {
 	text-align: center;
+	display: inline-block;
+	border: 1px solid red;
+}
+
+.project-form {
+	.form-group {
+		margin: 10px;
+		max-width: 100%; 
+	}
 }

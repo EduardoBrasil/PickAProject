@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	# Name size range.
 	MAX_NAME_SIZE = 35 # Characters.
 	MIN_NAME_SIZE = 4	 # Characters.
-  validates :name, length: { in: MIX_NAME_SIZE..MAN_NAME_SIZE }
+  validates :name, length: { in: MIN_NAME_SIZE..MAX_NAME_SIZE }
 
   # An regular expression used to validate user's email address.
   # There actually exists a full regex for matching email addresses 
@@ -36,5 +36,5 @@ class User < ActiveRecord::Base
   # Password size range.
   MAX_PASSWORD_SIZE = 20 # Characters
   MIN_PASSWORD_SIZE = 6	 # Characters
-  validates :length { in: MIN_PASSWORD_SIZE..MAX_PASSWORD_SIZE }
+  validates :password, length: { in: MIN_PASSWORD_SIZE..MAX_PASSWORD_SIZE }
 end

@@ -26,20 +26,20 @@
 // And finally bootswatch style itself
 @import "bootswatch/flatly/bootswatch";
 
-body {
-	min-height: 100%;
-}
-
 .navbar {
 	border-radius: 0px;
 }
-
+.app-nav, .app-content, .app-footer {
+	margin: 0;
+	border: 0px;
+}
+.app-footer {
+	vertical-align: text-bottom;
+}
 .footer {
-	clear: both;
 	margin-top: 10px;
 	border-top: 1px solid $gray-darker;
 	background-color: $gray-lighter;
-  color: $navbar-default-bg;
 	.container {
   	padding: 10px 0 10px 0;
   	a {
@@ -47,8 +47,4 @@ body {
 	  	background-color: $gray-lighter;
 	  }
   }
-}
-
-#content {
-	min-height: 100%;
 }
