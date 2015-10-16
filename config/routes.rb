@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :sessionns
   resources :projects
   resources :users
   root 'pages#home'

@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
+gem "devise"
 # Less-rails
 gem "less-rails"
 # twitter bootstrap
 gem "twitter-bootstrap-rails"
+# bootstrap-sas to layout
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 # BootsWatch
