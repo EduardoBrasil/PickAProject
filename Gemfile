@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+
+# Internalization
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+# Devise for authenticated
 gem "devise"
 # Less-rails
 gem "less-rails"
