@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016121124) do
+ActiveRecord::Schema.define(version: 20151017021833) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20151016121124) do
     t.string   "description"
     t.string   "status"
     t.integer  "percentage"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "image_file_file_name"
+    t.string   "image_file_content_type"
+    t.integer  "image_file_file_size"
+    t.datetime "image_file_updated_at"
   end
 
   create_table "sessionns", force: :cascade do |t|
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151016121124) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "username"
   end
 
 end
