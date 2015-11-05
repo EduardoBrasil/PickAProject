@@ -11,7 +11,16 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore vim temp files
+*.swp
+*.swo
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+
+Gemfile.lock
+db/schema.rb
+.gitignore
+*.swp
