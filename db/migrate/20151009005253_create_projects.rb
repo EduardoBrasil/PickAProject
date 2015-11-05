@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :author
       t.string :title
       t.string :project_type
-      t.string :description
+      t.text :description
       t.string :status
       t.integer :percentage
 
