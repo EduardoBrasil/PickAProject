@@ -12,12 +12,12 @@ class Project < ActiveRecord::Base
 	validates(:title, presence:true)
 	TITLE_MAX_LENGTH = 60 # Characters
 	TITLE_MIN_LENGTH = 3  # Characters
-	validates(:title, lenght: { in: TITLE_MIN_LENGTH...TITLE_MAX_LENGTH })
+	validates(:title, length: { in: TITLE_MIN_LENGTH...TITLE_MAX_LENGTH })
 
 	# Impossible to create a task without a description
 	validates(:description, presence: true)
-	DESCRIPTION_MAX_LENGTH = 20 # Characters
-	DESCRIPTION_MIN_LENGTH = 10000 # Characters
+	DESCRIPTION_MAX_LENGTH = 10000 # Characters
+	DESCRIPTION_MIN_LENGTH = 200 # Characters
 	validates(:description, length: { in: DESCRIPTION_MIN_LENGTH...DESCRIPTION_MAX_LENGTH })
 
   # Impossible to create a project without difficult setting
@@ -30,7 +30,7 @@ class Project < ActiveRecord::Base
   # Impossible to create a project without a level
   validates(:level, presence: true)
   # Only 3 types of level are permitted
-  PERMITTED_LEVELS = w%(easy medium hard)
+  PERMITTED_LEVELS = %w(easy medium hard)
   validates(:level, inclusion: PERMITTED_LEVELS)
 
   # Impossible to create a project without a category
@@ -42,7 +42,7 @@ class Project < ActiveRecord::Base
   # Impossible to create a project without a status
   validates(:status, presence: true)
   # Only 3 types of level are permitted
-  PERMITTED_STATUS = w%(active stopped finished)
+  PERMITTED_STATUS = %w(active stopped finished)
   validates(:status, inclusion: PERMITTED_STATUS)
 
 end

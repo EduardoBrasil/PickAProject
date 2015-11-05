@@ -12,7 +12,7 @@ class Task < ActiveRecord::Base
 	validates(:title, presence:true)
 	TITLE_MAX_LENGTH = 60 # Characters
 	TITLE_MIN_LENGTH = 3  # Characters
-	validates(:title, lenght: { in: TITLE_MIN_LENGTH...TITLE_MAX_LENGTH })
+	validates(:title, length: { in: TITLE_MIN_LENGTH...TITLE_MAX_LENGTH })
 
   # Impossible to create a task without a difficult level
   validates(:difficult, presence: true)
@@ -26,8 +26,8 @@ class Task < ActiveRecord::Base
 
 	# Impossible to create a task without a description
 	validates(:description, presence: true)
-	DESCRIPTION_MAX_LENGTH = 20 # Characters
-	DESCRIPTION_MIN_LENGTH = 10000 # Characters
+	DESCRIPTION_MAX_LENGTH = 10000 # Characters
+	DESCRIPTION_MIN_LENGTH = 200 # Characters
 	validates(:description, length: { in: DESCRIPTION_MIN_LENGTH...DESCRIPTION_MAX_LENGTH })
   
 end
