@@ -30,7 +30,7 @@
     <div class="control-group accept-inline">
       <%= f.label :category, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :category, options_for_select(%w(Importar Da Controller)), :class => 'form-control' %>
+        <%= f.select :category, @options[:categories], {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:category]) %>
     </div>
@@ -40,7 +40,7 @@
     <div class="control-group accept-inline">
       <%= f.label :level, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :level, options_for_select(%w(Easy Medium Hard Extream)), :class => 'form-control' %>
+        <%= f.select :level, @options[:levels], {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:level]) %>
     </div>
@@ -49,7 +49,7 @@
     <div class="control-group accept-inline">
       <%= f.label :status, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :status, options_for_select(%w(Active Planning Stopped Finished)), :class => 'form-control' %>
+        <%= f.select :status, @options[:status], {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:status]) %>
     </div>
@@ -62,6 +62,8 @@
       </div>
       <%= error_span(@project[:image_file]) %>
     </div>
+
+    <br>
 
     <!-- Get description. -->
     <div class="control-group">
@@ -94,7 +96,7 @@
 
           <!-- Get the difficult of the task, should be fibonacci (1, 21). -->
           <%= task_form.label :difficult, class: 'control-label' %><br>
-          <%= task_form.select :difficult, options_for_select(%w(1 2 3 5 8 13 21)), class: 'form-control' %>
+          <%= task_form.select :difficult, @options[:difficult_fibonacci_values], {}, class: 'form-control' %>
           <br><br><br>
 
           <!-- Get the description of the task. -->

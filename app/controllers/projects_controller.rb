@@ -14,6 +14,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    # Default defines to Project settings
+    @options = {
+      categories: Project::PERMITTED_CATEGORIES,
+      status: Project::PERMITTED_STATUS,
+      levels: Project::PERMITTED_LEVELS,
+      difficult_fibonacci_values: Task::PERMITTED_FIBONACCI_VALUES
+    }
+
     @project = Project.new
   end
 
@@ -25,6 +33,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+
+    # [REMOVE] should be a association
+    @project.author = "Test Author"
+    @project.percentage = 0 # Project begin, 0% done.
 
     respond_to do |format|
       if @project.save
@@ -72,4 +84,5 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:title, :category, :description, :status, :image_file,
       tasks_attributes: [:id, :title, :description, :difficult, :_destroy])
     end
+
 end
