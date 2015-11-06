@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require_jquery_nested_form
 
 /* Sets the minimum height of the wrapper div to ensure the footer reaches the bottom */
 function setWrapperMinHeight() {
