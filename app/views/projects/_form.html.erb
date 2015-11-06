@@ -1,66 +1,120 @@
-<%= form_for @project, :html => { :class => "form-horizontal project" } do |f| %>
+<div class="project-form">
+  <%= nested_form_for @project, html: { class: "form-horizontal project" } do |f| %>
+      <!-- Get possible errors in the empty project object -->
+      <% if @project.errors.any? %>
+      <div id="error_expl" class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+          <!-- Print some errors -->
+          <% @project.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
-    <% if @project.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+    <!-- Get title -->
+    <div class="control-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'form-control' %>
       </div>
-      <div class="panel-body">
-        <ul>
-        <% @project.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+      <%= error_span(@project[:title]) %>
+    </div>
+
+    <!-- Get category -->
+    <div class="control-group accept-inline">
+      <%= f.label :category, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :category, options_for_select(%w(Importar Da Controller)), :class => 'form-control' %>
       </div>
+      <%= error_span(@project[:category]) %>
+    </div>
+
+    <!-- Get level -->
+    <!-- [TODO] limit options easy, medium, hard -->
+    <div class="control-group accept-inline">
+      <%= f.label :level, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :level, options_for_select(%w(Easy Medium Hard Extream)), :class => 'form-control' %>
+      </div>
+      <%= error_span(@project[:level]) %>
+    </div>
+
+    <!-- Get status -->
+    <div class="control-group accept-inline">
+      <%= f.label :status, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :status, options_for_select(%w(Active Planning Stopped Finished)), :class => 'form-control' %>
+      </div>
+      <%= error_span(@project[:status]) %>
+    </div>
+
+    <!-- Get the image for this task -->
+    <div class="control-group">
+      <%= f.label :image_file, "Overview image", class: 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :image_file %>
+      </div>
+      <%= error_span(@project[:image_file]) %>
+    </div>
+
+    <!-- Get description. -->
+    <div class="control-group">
+      <%= f.label :description, "Overview", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, :class => 'form-control' %>
+      </div>
+      <%= error_span(@project[:description]) %>
+    </div>
+
+    <!-- Get each task information. -->
+    <div class="control-group task-form">
+      <br>
+      <h2 id="task-label">Tasks</h2>
+      <br>
+      <!-- Loop while user clicks on "Add a new task". -->
+      <%= f.fields_for :tasks do |task_form| %>
+        <div class="control-group">
+          <hr>
+          <h3 id="task-label">#task</h2>
+          <!-- Get the title of the task. -->
+          <%= task_form.label :title, class: 'control-label' %><br>
+          <%= task_form.text_field :title, class: 'form-control' %><br>
+
+          <div class="accept-inline">
+            <!-- Get the image for this task -->
+            <%= task_form.label :image_file, "Task image", class: 'control-label' %><br>
+            <%= task_form.file_field :image_file %><br>
+          </div>
+
+          <!-- Get the difficult of the task, should be fibonacci (1, 21). -->
+          <%= task_form.label :difficult, class: 'control-label' %><br>
+          <%= task_form.select :difficult, options_for_select(%w(1 2 3 5 8 13 21)), class: 'form-control' %>
+          <br><br><br>
+
+          <!-- Get the description of the task. -->
+          <%= task_form.label :description, class: 'control-label' %><br>
+          <%= task_form.text_area :description, class: 'form-control' %><br>
+
+          <!-- Add a button to remove created task's fields. -->
+          <%= task_form.link_to_remove "Remove this task", class: 'btn btn-primary center-block' %>
+        </div>
+      <% end %>
+      <!-- Add a button to create new empty task fields. -->
+      <p><%= f.link_to_add "Add a new task", :tasks, class: 'btn btn-default center-block'%></p>
+    </div>
+
+    <br>
+    <div class="submit-buttons">
+      <!-- Buttons to submit or cancel form -->
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn btn-default' %>
     </div>
   <% end %>
-
-  <div class="control-group">
-    <%= f.label :author, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :author, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:author]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:title]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :project_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :project_type, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:project_type]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:description]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :status, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:status]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :percentage, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :percentage, :class => 'form-control' %>
-    </div>
-    <%= error_span(@project[:percentage]) %>
-  </div>
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            projects_path, :class => 'btn btn-default' %>
-
-<% end %>
+</div>
