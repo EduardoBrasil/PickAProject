@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   # Each project have some tasks
   # Each task is a small thing that should be done in the project.
   has_many :tasks, dependent: :destroy
+  validates_associated :tasks
   # Enable nested_form gem to work well
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
 
@@ -38,7 +39,7 @@ class Project < ActiveRecord::Base
   # Impossible to create a project without a category
   validates(:category, presence: true)
   CATEGORY_MAX_LENGTH = 30 # Characters
-  CATEGORY_MIN_LENGTH = 4 # Characters
+  CATEGORY_MIN_LENGTH = 3 # Characters
   validates(:category, length: { in: CATEGORY_MIN_LENGTH...CATEGORY_MAX_LENGTH})
   PERMITTED_CATEGORIES = %w(Art Tecnology Musical Education Toy)
   validates(:category, inclusion: PERMITTED_CATEGORIES)
