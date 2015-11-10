@@ -30,7 +30,7 @@
     <div class="control-group accept-inline">
       <%= f.label :category, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :category, @options[:categories], {}, :class => 'form-control' %>
+        <%= f.select :category, options_for_select(@project.class::PERMITTED_CATEGORIES), {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:category]) %>
     </div>
@@ -40,7 +40,7 @@
     <div class="control-group accept-inline">
       <%= f.label :level, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :level, @options[:levels], {}, :class => 'form-control' %>
+        <%= f.select :level, options_for_select(@project.class::PERMITTED_LEVELS), {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:level]) %>
     </div>
@@ -49,7 +49,7 @@
     <div class="control-group accept-inline">
       <%= f.label :status, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :status, @options[:status], {}, :class => 'form-control' %>
+        <%= f.select :status, @project.class::PERMITTED_STATUS, {}, :class => 'form-control' %>
       </div>
       <%= error_span(@project[:status]) %>
     </div>
@@ -96,7 +96,7 @@
 
           <!-- Get the difficult of the task, should be fibonacci (1, 21). -->
           <%= task_form.label :difficult, class: 'control-label' %><br>
-          <%= task_form.select :difficult, @options[:difficult_fibonacci_values], {}, class: 'form-control' %>
+          <%= task_form.select :difficult, [1, 2, 3, 5, 8, 13, 21],class: 'form-control difficult-align' %>
           <br><br><br>
 
           <!-- Get the description of the task. -->
