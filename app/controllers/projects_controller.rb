@@ -14,14 +14,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    # Default defines to Project settings
-    @options = {
-      categories: Project::PERMITTED_CATEGORIES,
-      status: Project::PERMITTED_STATUS,
-      levels: Project::PERMITTED_LEVELS,
-      difficult_fibonacci_values: Task::PERMITTED_FIBONACCI_VALUES
-    }
-
     @project = Project.new
   end
 
@@ -81,7 +73,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :category, :description, :status, :image_file,
+      params.require(:project).permit(:title, :category, :level, :description, :status, :image_file,
       tasks_attributes: [:id, :title, :description, :difficult, :_destroy])
     end
 
