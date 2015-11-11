@@ -13,65 +13,83 @@
   </div>
 </div>
 
+<div class="project-overview">
+  <div class="project-overview-image col-md-7">
+    <% if @project.image_file.present? %>
+      <%= image_tag(@project.image_file.url(), class: "image-config") %>
+    <% else %>
+      <!-- [TODO] Add an alternative file -->
+    <% end %>
+  </div>
 
-<div class="project-information">
-  <dl class="dl-horizontal">
-    <dt>
-      <strong>
-        <%= model_class.human_attribute_name(:author) %>:
-      </strong>
-    </dt>
-    <dd>
-      <%= @project.author %>
-    </dd>
+  <div class="project-information col-md-5">
+    <dl class="dl-horizontal">
+      <dt>
+        <strong>
+          <%= model_class.human_attribute_name(:author) %>:
+        </strong>
+      </dt>
+      <dd>
+        <%= @project.author %>
+      </dd>
 
-    <dt>
-      <strong>
-        <%= model_class.human_attribute_name(:title) %>:
-      </strong>
-    </dt>
-    <dd>
-      <%= @project.title %>
-    </dd>
-    <dt>
-      <strong>
-        <%= model_class.human_attribute_name(:category) %>:
-      </strong>
-    </dt>
-    <dd>
-      <%= @project.category %>
-    </dd>
+      <dt>
+        <strong>
+          <%= model_class.human_attribute_name(:category) %>:
+        </strong>
+      </dt>
+      <dd>
+        <%= @project.category %>
+      </dd>
 
-    <dt>
-      <strong>
-        <%= model_class.human_attribute_name(:status) %>:
-      </strong>
-    </dt>
-    <dd>
-      <%= @project.status %>
-    </dd>
+      <dt>
+        <strong>
+          <%= model_class.human_attribute_name(:status) %>:
+        </strong>
+      </dt>
+      <dd>
+        <%= @project.status %>
+      </dd>
 
-   <dt>
-      <strong>
-        Created at:
-      </strong>
-    </dt>
-    <dd>
-      <%= @project.created_at %>
-    </dd>
+      <dt>
+        <strong>
+          Created at:
+        </strong>
+      </dt>
+      <dd>
+        <%= @project.created_at.strftime("%d/%m/%Y") %>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<div class="project-about">
+  <div class="project-description col-md-7">
+    <dl>
+      <dt>
+        <strong>
+          <%= model_class.human_attribute_name(:description) %>:
+        </strong>
+      </dt>
+      <dd>
+        <%= @project.description %>
+      </dd>
+    </dl>
+  </div>
+
+  <div class="project-contributors col-md-5">
+    <dl>
+      <dt>
+        <strong>
+          Contributors:
+        <strong>
+      </dt>
+      <dd>
+        Imagens dos contribuidores
+      </dd>
   </dl>
 </div>
 
-<div class="description" id="project-overview">
-  <dt>
-    <strong>
-      <%= model_class.human_attribute_name(:description) %>:
-    </strong>
-  </dt>
-  <dd>
-    <%= @project.description %>
-  </dd>
-</div>
 <div class= "centralize debug-border">
   <%= link_to t('.back', :default => t("helpers.links.back")),
                 projects_path, :class => 'btn btn-default'  %>
