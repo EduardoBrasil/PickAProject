@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151112234648) do
   add_index "project_members", ["projects_id"], name: "index_project_members_on_projects_id"
 
   create_table "projects", force: :cascade do |t|
-    t.integer  "owner_id_id"
+    t.integer  "owner_id"
     t.string   "author"
     t.string   "title"
     t.string   "level"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20151112234648) do
     t.datetime "image_file_updated_at"
   end
 
-  add_index "projects", ["owner_id_id"], name: "index_projects_on_owner_id_id"
+  add_index "projects", ["owner_id"], name: "index_projects_on_owner_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
