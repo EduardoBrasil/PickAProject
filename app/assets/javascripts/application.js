@@ -20,9 +20,10 @@
 
 /* Sets the minimum height of the wrapper div to ensure the footer reaches the bottom */
 function setWrapperMinHeight() {
-  $('.wrapper').css('minHeight', window.innerHeight - $('.nav').height() - $('.footer').height() - 12);
+  //$('body').css('min-height', window.innerHeight);
+  //$('.app-content').css('height', $('body').height() - $('.app-nav').height() - $('.app-footer').height());
 }
-
+  
 $(document).ready(function(){
   /* Make sure the main div gets resized on ready */
   setWrapperMinHeight();
