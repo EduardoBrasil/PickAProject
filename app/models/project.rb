@@ -3,9 +3,9 @@ class Project < ActiveRecord::Base
   resourcify
 
   # Each project has an owner
-  belongs_to :owner, class: 'User'
+  belongs_to :owner, class_name: 'User'
   has_many :project_members
-
+  attr_accessor :owner_id
   # Each project has some tasks
   # Each task is a small thing that should be done in the project.
   has_many :tasks, dependent: :destroy

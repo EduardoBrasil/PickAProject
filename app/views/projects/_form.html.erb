@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="project-form">
   <%= nested_form_for @project, html: { class: "form-horizontal project" } do |f| %>
       <!-- Get possible errors in the empty project object -->
@@ -15,13 +14,6 @@
           <% end %>
           </ul>
         </div>
-=======
-<%= form_for @project, :html => { :class => "form-horizontal project-form" } do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
->>>>>>> a930542fe9c4c3af82e275cb57687faba6f44b52
       </div>
     <% end %>
 
@@ -33,7 +25,6 @@
       </div>
       <%= error_span(@project[:title]) %>
     </div>
-<<<<<<< HEAD
 
     <!-- Get category -->
     <div class="control-group accept-inline">
@@ -129,78 +120,4 @@
     </div>
   <% end %>
 </div>
-=======
-  <% end %>
-  <fieldset>
-    <div class="form-group">
-      <%= f.label :author, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_field :author, :class => 'form-control' %>
-      </div>
-      <%= error_span(@project[:author]) %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :title, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_field :title, :class => 'form-control' %>
-      </div>
-      <%= error_span(@project[:title]) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :project_type, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_field :project_type, :class => 'form-control' %>
-      </div>
-      <%= error_span(@project[:project_type]) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_area :description, :class => 'form-control', :rows => "3", :id => "textArea" %>
-        <span class="help-block">Briefly describe your project here.</span>
-      </div>
-      <%= error_span(@project[:description]) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :status, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_field :status, :class => 'form-control' %>
-      </div>
-      <%= error_span(@project[:status]) %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :percentage, :class => 'col-md-4 control-label' %>
-      <div class="col-md-5">
-        <%= f.text_field :percentage, :class => 'form-control' %>
-      </div>
-      <%= error_span(@project[:percentage]) %>
-    </div>
-
-    <!--
-    <div class="form-group">
-      <= f.label :project_type, :class => 'col-md-2 control-label' %>
-      <div class="col-md-10">
-        <select class="form-control" id="select">
-        select_tag 'select',
-          options_for_select([ "Technology", "Music", "Arts", "Others" ], ["Technology"])
-        </select>
-      </div>
-      <= error_span(@project[:project_type]) %>
-    </div>
-    -->
-
-    <div class="form-group">
-      <div class="col-md-5 col-md-offset-4">
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            projects_path, :class => 'btn btn-default', :type => "reset" %>
-        <%= f.submit nil, :class => 'btn btn-primary', :type => "submit" %>
-      </div>
-    </div>
-  </fieldset>
-<% end %>
->>>>>>> a930542fe9c4c3af82e275cb57687faba6f44b52

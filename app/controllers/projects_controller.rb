@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    # Associate the project being created along with its owner
+    # Associate the project created along with its owner
     @project.owner_id = current_user.id
 
     # [REMOVE] should be a association
