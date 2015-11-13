@@ -2,17 +2,15 @@
 <html>
   <head>
     <title>Pick a Project</title>
-    <link href="stylesheets/_bootswatch.scss" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag :defaults, "nested_form" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <!-- Navigation Bar -->
     <div class="app-nav"><%= render "layouts/header" %></div>
     <!-- Content -->
-    <div class="app-content"><%= yield %></div>
+    <div class="centralize app-content"><%= yield %></div>
     <!-- Footer -->
     <div class="app-footer"><%= render "layouts/footer" %></div>
   </body>
