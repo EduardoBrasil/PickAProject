@@ -27,5 +27,8 @@
   </div>  
 </div>
 
-<!-- Link to create a new project -->
-<%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary new-p-btn' %>
+<!-- Link to create a new project, if the user is logged in -->
+<% if user_signed_in? %>
+  <%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary' %>
+  <br />
+<% end %>
