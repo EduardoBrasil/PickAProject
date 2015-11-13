@@ -1,6 +1,8 @@
 class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
+      t.belongs_to :owner_id
+
       #[TODO] this field should be removed and substituted by an asssociation
       t.string :author
 

@@ -1,5 +1,12 @@
 class Project < ActiveRecord::Base
-  # Each project have some tasks
+  # Use project as a rolify resource
+  resourcify
+
+  # Each project has an owner
+  belongs_to :owner, class: 'User'
+  has_many :project_members
+
+  # Each project has some tasks
   # Each task is a small thing that should be done in the project.
   has_many :tasks, dependent: :destroy
   validates_associated :tasks
