@@ -1,0 +1,93 @@
+<div class="tasks">
+  <% if @project.tasks.present? %>
+    <% @project.tasks.each do |each_task| %>
+      <div class="each-task">
+        <div class="task-title">
+          <!-- The task name -->
+          <a href="#myModal" role="button" class="btn btn-default" data-toggle="modal">
+            <p>
+              Task # <%= each_task.title %>
+            </p>
+          </a>
+        </div>
+
+
+        <!-- Modal display -->
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Modal header</h3>
+              </div>
+              <div class="modal-body">
+
+
+                <!-- Task body -->
+                <!-- Display the task image -->
+                <div class="task-overview">
+                  <div class="task-image">
+                    <% if each_task.image_file.present? %>
+                      <%= image_tag(each_task.image_file.url(), class: "image-config") %>
+                    <% else %>
+                      <!-- [TODO] Add an alternative file -->
+                    <% end %>
+                  </div>
+
+
+
+                  <!-- Display task information -->
+                  <div class="task-information">
+                    <dl>
+                      <dt>
+                        <h3>Maker:</h3>
+                      </dt>
+                      <dd>
+                        <!-- Verify if the task is assigned to an user -->
+                        <% if false %>
+                          <!-- Verify if the user have an picture -->
+                          <% if each_task.image_file.present? %>
+                            <div class="contributor-image">
+                              <% image_tag(each_task.image_file.url(), class: "image-config") %>
+                            </div>
+                          <% else %>
+                            <!-- Do nothing -->
+                          <% end %>
+                        <!-- If it isn't assigned to any user -->
+                        <% else %>
+                          <!-- Display button to assign the task -->
+                          <!--[TODO] Fix this link -->
+                          <%= link_to "Be yourself!" , edit_project_path(@project), class: 'btn btn-default' %>
+                        <% end %>
+                      </dd>
+                    </dl>
+                  </div>
+
+
+
+                  <!-- Display line to separate the circle of the task difficult -->
+                  <div class="difficult-circle-container">
+                    <!-- Div to create a circle -->
+                    <div class="difficult-circle">
+                      <h1><%= each_task.difficult %></h1>
+                    </div>
+                  </div>
+                </div><!-- End of task body -->
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    <% end %>
+  <% else %>
+  <% end %>
+</div>
