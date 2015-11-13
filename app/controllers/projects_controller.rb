@@ -26,6 +26,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
+    # Associate the project being created along with its owner
+    @project.owner_id = current_user.id
+
     # [REMOVE] should be a association
     @project.author = "Test Author"
     @project.percentage = 0 # Project begin, 0% done.
