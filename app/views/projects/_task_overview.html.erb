@@ -2,14 +2,14 @@
   <% if @project.tasks.present? %>
     <% @project.tasks.each do |each_task| %>
       <div class="each-task">
-        <div class="task-title">
-          <!-- The task name -->
-          <a href="#" class="btn btn-default" id="openBtn<%= each_task.id %>">
-            <p>
-              Task # <%= each_task.title %>
-            </p>
+          <!-- Click in the image to open the task -->
+          <a href="#" class="btn btn-default btn-to-modal" id="openBtn<%= each_task.id %>">
+            <% if each_task.image_file.present? %>
+              <%= image_tag(each_task.image_file.url(), class: "image-to-modal-prop") %>
+            <% else %>
+              <!-- [TODO] Add an alternative file -->
+            <% end %>
           </a>
-        </div>
 
 
         <!-- Modal display -->
@@ -18,7 +18,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h3 id="myModalLabel">Modal header</h3>
+                <h3 id="myModalLabel"><%= each_task.title %></h3>
               </div>
               <div class="modal-body">
 
@@ -66,13 +66,20 @@
 
 
                   <!-- Display line to separate the circle of the task difficult -->
-                  <div class="difficult-circle-container">
+                  <div class="difficult-circle-container center-block">
                     <!-- Div to create a circle -->
                     <div class="difficult-circle">
                       <h1><%= each_task.difficult %></h1>
                     </div>
                   </div>
-                </div><!-- End of task body -->
+                </div><!-- End of task overview -->
+                <hr>
+                <div class="task-description">
+                  <h3>Task description</h3>
+                  <%= each_task.description %>
+                </div><!-- End of task description-->
+
+                <!-- End of task body -->
 
               </div>
               <div class="modal-footer">
@@ -82,6 +89,7 @@
           </div>
         </div>
 
+<!-- Javascript to display the selected modal page -->
 <%= javascript_tag do %>
   $("[data-toggle=modal]").popover();$('#openBtn<%= each_task.id %>').click(function(){
     $('#myModal<%= each_task.id %>').modal({show:true})

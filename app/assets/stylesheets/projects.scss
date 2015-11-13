@@ -127,17 +127,12 @@
 
   .tasks {
     clear: both;
+    margin-top: 10%;;
   }
 
   .each-task {
-    clear:both;
-    padding-top: 7%; 
-  }
-
-  .task-title {
-    clear: both;
-    width: 100%;
-    text-align: right;
+    float: left;
+    margin-top: 2%; 
   }
 
   .task-overview {
@@ -159,5 +154,18 @@
     float: left;
     width: 40%;
     text-align: center;
+  }
+
+  .btn-to-modal {
+    margin: 6px;
+  }
+  .image-to-modal-prop {
+    width: 70px;
+    height: 70px;
+  }
+
+  .user-btns {
+    clear:both;
+    padding-top: 15%;
   }
 }
