@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-	# Use this controller as a resource of CanCan and Rolify
-  load_and_authorize_resource
+	# Bypass authorization check for pages controller.
+	skip_authorization_check
 
 	def home
 	end
