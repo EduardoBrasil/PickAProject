@@ -81,45 +81,83 @@
   text-align:center;
 }
 
-.header-information {
-  clear:both;
-  overflow: hidden;
-}
+.project-show-container {
+  .header-information {
+    clear:both;
+    overflow: hidden;
+  }
 
-.progress {
-  clear:both;
-  width: 50%;
-  display: block;
-  margin: auto;
-  position: relative;
-}
+  .progress {
+    clear:both;
+    width: 50%;
+    display: block;
+    margin: auto;
+    position: relative;
+  }
 
-.project-image-overview{
-  clear: both;
-  width: 50%;
-}
+  .project-image-overview{
+    clear: both;
+    width: 50%;
+  }
 
-.image-config{
-  width:100%;
-  heigth: 100%;
-}
+  .image-config{
+    width:100%;
+    height: 100%;
+  }
 
-.project-information {
-  margin-top: 15%;
-}
-.project-overview {
-  clear: both;
-  width:50%;
-  margin:auto;
-}
+  .project-information {
+    margin-top: 15%;
+  }
+  .project-overview {
+    clear: both;
+    width:50%;
+    margin:auto;
+  }
 
-.project-about {
-  padding-top: 3%;
-  clear: both;
-  width: 50%;
-  margin:auto;
-}
+  .project-about {
+    padding-top: 3%;
+    clear: both;
+    width: 50%;
+    margin:auto;
+  }
 
-.project-description {
-  overflow: auto;
+  .project-description {
+    overflow: auto;
+  }
+
+  .tasks {
+    clear: both;
+  }
+
+  .each-task {
+    clear:both;
+    padding-top: 7%; 
+  }
+
+  .task-title {
+    clear: both;
+    width: 100%;
+    text-align: right;
+  }
+
+  .task-overview {
+    width: 100%;
+    clear: both;
+    display: inline-block;
+  }
+
+  .debug-line {
+    //class to debug
+    border: 1px dotted blue;
+  }
+  .task-image {
+    float: left;
+    width: 60%;
+  }
+
+  .task-information {
+    float: left;
+    width: 40%;
+    text-align: center;
+  }
 }
