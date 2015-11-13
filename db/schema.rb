@@ -13,7 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20151112234648) do
 
+  create_table "project_members", force: :cascade do |t|
+    t.integer "projects_id"
+    t.integer "member_id"
+  end
+
+  add_index "project_members", ["member_id"], name: "index_project_members_on_member_id"
+  add_index "project_members", ["projects_id"], name: "index_project_members_on_projects_id"
+
   create_table "projects", force: :cascade do |t|
+    t.integer  "owner_id_id"
     t.string   "author"
     t.string   "title"
     t.string   "level"
@@ -28,6 +37,8 @@ ActiveRecord::Schema.define(version: 20151112234648) do
     t.integer  "image_file_file_size"
     t.datetime "image_file_updated_at"
   end
+
+  add_index "projects", ["owner_id_id"], name: "index_projects_on_owner_id_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  
   # Use this controller as a resource of CanCan and Rolify
   load_and_authorize_resource
 
