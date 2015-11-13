@@ -4,7 +4,7 @@
       <div class="each-task">
         <div class="task-title">
           <!-- The task name -->
-          <a href="#" class="btn btn-default" class="openBtn">
+          <a href="#" class="btn btn-default" id="openBtn<%= each_task.id %>">
             <p>
               Task # <%= each_task.title %>
             </p>
@@ -13,7 +13,7 @@
 
 
         <!-- Modal display -->
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div id="myModal<%= each_task.id %>" class="modal fade" tabindex="-1" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -74,8 +74,6 @@
                   </div>
                 </div><!-- End of task body -->
 
-
-
               </div>
               <div class="modal-footer">
                 <button class="btn" data-dismiss="modal">Close</button>
@@ -84,6 +82,11 @@
           </div>
         </div>
 
+<%= javascript_tag do %>
+  $("[data-toggle=modal]").popover();$('#openBtn<%= each_task.id %>').click(function(){
+    $('#myModal<%= each_task.id %>').modal({show:true})
+  });
+<% end %>
 
       </div>
     <% end %>
@@ -91,8 +94,3 @@
   <% end %>
 </div>
 
-<script>
-  $("[data-toggle=popover]").popover();$('.openBtn').click(function(){
-    $('#myModal').modal({show:true})
-  });
-</script>
