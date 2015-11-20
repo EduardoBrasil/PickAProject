@@ -22,7 +22,7 @@
         <% end %>
 
         <!-- Header Navbar -->
-        <nav class="navbar navbar-static-top" role="navigation">
+        <nav class="navbar-align navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -223,8 +223,6 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <!-- Body with all content -->
-          <%= yield %>
-
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
             <li class="active">Here</li>
@@ -233,9 +231,7 @@
 
         <!-- Main content -->
         <section class="content">
-
-          <!-- Your Page Content Here -->
-
+          <%= yield %>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
