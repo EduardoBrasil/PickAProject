@@ -4,7 +4,7 @@
     <title>Pick a Project</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag :defaults, "nested_form" %>
+    <%= javascript_include_tag "nested_form" %>
     <%= csrf_meta_tags %>
   </head>
  <body class="hold-transition skin-blue sidebar-mini">
@@ -14,12 +14,12 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <%= link_to root_path, class: "logo" do %>
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>P</b>aP</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Admin</b>LTE</span>
-        </a>
+          <span class="logo-lg"><b>Pick</b>aProject</span>
+        <% end %>
 
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -46,7 +46,7 @@
                         <a href="#">
                           <div class="pull-left">
                             <!-- User Image -->
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
                           </div>
                           <!-- Message title and timestamp -->
                           <h4>
@@ -125,14 +125,14 @@
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">Alexander Pierce</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
                     <p>
                       Alexander Pierce - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -178,7 +178,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
             </div>
             <div class="pull-left info">
               <p>Alexander Pierce</p>
@@ -200,15 +200,17 @@
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">MENU</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Calendar</span></a></li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Graphs</span></a></li>
+            <li><a href="#"><i class="fa fa-link"></i> <span>Ranking</span></a></li>
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-link"></i> <span>Projects</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
+                <li><%= link_to "Start a Project", new_project_path %></li>
+                <li><%= link_to "My Projects", projects_path %></li>
+                <li><a href="#">My tasks</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->
@@ -220,10 +222,9 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            Page Header
-            <small>Optional description</small>
-          </h1>
+          <!-- Body with all content -->
+          <%= yield %>
+
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
             <li class="active">Here</li>
@@ -311,19 +312,5 @@
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-
-    <!-- REQUIRED JS SCRIPTS -->
-
-    <!-- jQuery 2.1.4 -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/app.min.js"></script>
-
-    <!-- Optionally, you can add Slimscroll and FastClick plugins.
-         Both of these plugins are recommended to enhance the
-         user experience. Slimscroll is required when using the
-         fixed layout. -->
   </body>
 </html>
