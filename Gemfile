@@ -35,6 +35,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Nested form
 gem 'nested_form'
+# Gems to the frontend
+gem 'font-awesome-sass'
+
+source 'https://rails-assets.org/' do 
+  gem 'rails-assets-adminlte'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
