@@ -6,6 +6,17 @@ require "cancan/matchers"
 require 'rails_helper'
 
 describe Ability do
+	# First, load the seed.rb file in order to initialize default roles
+	Rails.application.load_seed
+
+	context "when is an admin" do
+		it "should be able to manage any project" do
+			user = create_user # Only valid data
+			user.add_role(:admin)
+			ability = Ability.new(user)
+			expect(ability).to be_able_to(:manage, Project)
+		end
+	end
 
 	# Methods below are used to create instances of users and projects
 	private
