@@ -18,6 +18,32 @@ describe Ability do
 		end
 	end
 
+	context "when is a common user" do
+		it "should be able to manage projects they are owner" do
+			user = create_user # Only valid data
+			ability = Ability.new(user)
+			expect(ability).to be_able_to(:manage, create_project(:ong_id => ong.id))
+		end
+
+		it "should be able to create projects" do
+			user = create_user # Only valid data
+			ability = Ability.new(user)
+			expect(ability).to be_able_to(:create, Project)
+		end
+
+		it "should be able to read projects" do
+			user = create_user # Only valid data
+			ability = Ability.new(user)
+			expect(ability).to be_able_to(:read, create_project)
+		end
+
+		it "should not be able to edit, destroy or update any project they are not owner" do
+			user = create_user # Only valid data
+			ability = Ability.new(user)
+			expect(ability).not_to be_able_to([:edit, :destroy, :update], create_project)
+		end
+	end
+
 	# Methods below are used to create instances of users and projects
 	private
 
