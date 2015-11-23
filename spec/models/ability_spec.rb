@@ -44,6 +44,26 @@ describe Ability do
 		end
 	end
 
+	context "when is guest user (not logged in)" do
+		it "should be able to read projects" do
+			user = User.new # guest user (not logged in)
+			ability = Ability.new(user)
+			expect(ability).to be_able_to(:read, create_project)
+		end
+
+		it "should not be able to create projects" do
+			user = User.new # guest user (not logged in)
+			ability = Ability.new(user)
+			expect(ability).not_to be_able_to(:create, Project)
+		end
+
+		it "should not be able to edit, destroy or update any project" do
+			ser = User.new # guest user (not logged in)
+			ability = Ability.new(user)
+			expect(ability).not_to be_able_to([:edit, :destroy, :update], create_project)
+		end
+	end
+
 	# Methods below are used to create instances of users and projects
 	private
 
