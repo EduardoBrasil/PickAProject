@@ -2,7 +2,13 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    begin
+      @projects = Project.all
+    rescue ActiveRecord::RecordNotFound => e
+      # If there are an error and the projects are unreachable,
+      # Returns to home, and show an error message
+      format.html { redirect_to root_path, notice: 'Something comes wrong. Please, try again' }
+    end
   end
 
   def show
