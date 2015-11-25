@@ -119,7 +119,50 @@ RSpec.describe Project, type: :model do
       end
     end
 
+    context "when testing wrong level values" do
+      it "should not be valid without level value" do
+        project = create_project_with_task
+        project.level = nil
+        expect(project).not_to be_valid
+      end
 
+      it "should not be valid with values that are not specified in the model" do
+        project = create_project_with_task(project_options: {
+          level: "stupid test string"
+        })
+        expect(project).not_to be_valid
+      end
+    end
+
+    context "when testing with wrong categories" do
+      it "should not be valid without category" do
+        project = create_project_with_task
+        project.category = nil
+        expect(project).not_to be_valid
+      end
+
+      it "should not be valid with categories that are not specified in the model" do
+        project = create_project_with_task(project_options: {
+          category: "stupid test string"
+        })
+        expect(project).not_to be_valid
+      end
+    end
+
+    context "when testing with wrong status" do
+      it "should not be valid without status" do
+        project = create_project_with_task
+        project.status = nil
+        expect(project).not_to be_valid
+      end
+
+      it "should not be valid with status that are not specified in the model" do
+        project = create_project_with_task(project_options: {
+          status: "stupid test string"
+        })
+        expect(project).not_to be_valid
+      end
+    end
   end
 
   private
