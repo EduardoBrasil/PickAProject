@@ -38,9 +38,6 @@ class Project < ActiveRecord::Base
 
   # Impossible to create a project without a category
   validates(:category, presence: true)
-  CATEGORY_MAX_LENGTH = 30 # Characters
-  CATEGORY_MIN_LENGTH = 3 # Characters
-  validates(:category, length: { in: CATEGORY_MIN_LENGTH...CATEGORY_MAX_LENGTH})
   PERMITTED_CATEGORIES = %w(Art Tecnology Musical Education Toy)
   validates(:category, inclusion: PERMITTED_CATEGORIES)
 
