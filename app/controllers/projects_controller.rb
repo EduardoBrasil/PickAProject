@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update(project_params)
         # If it is ok, go to the project page and display a success message
-        logger.info "Success saving modifications to Project, id: #{ project.id }"
+        logger.info "Success saving modifications to Project, id: #{ @project.id }"
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
