@@ -29,5 +29,4 @@ class Task < ActiveRecord::Base
   DESCRIPTION_MAX_LENGTH = 10000 # Characters
   DESCRIPTION_MIN_LENGTH = 200 # Characters
   validates(:description, length: { in: DESCRIPTION_MIN_LENGTH...DESCRIPTION_MAX_LENGTH })
-  
 end
