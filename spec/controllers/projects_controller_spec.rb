@@ -160,24 +160,4 @@ RSpec.describe ProjectsController, type: :controller do
         status: Project::PERMITTED_STATUS.first # Returns the string "Active"
       }.merge(options))
     end
-
-    # Create a valid task to validate the project
-    def create_task(options = {})
-      task = Task.create({
-        title: "a"*(Task::TITLE_MIN_LENGTH),
-        difficult: Task::PERMITTED_FIBONACCI_VALUES.first,
-        description: "a"*(Task::DESCRIPTION_MIN_LENGTH)
-      }.merge(options))
-
-      return task
-    end
-
-    # Create a valid project with a task
-    def create_project_with_task(project_options: {}, task_options: {})
-      project = create_project(project_options)
-      task = create_task(task_options)
-      project.tasks << task
-
-      return project
-    end
 end
