@@ -11,28 +11,30 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
+//= require adminlte
+//= require_jquery_nested_form
+//= require turbolinks
 
-$(function(){
+/* Sets the minimum height of the wrapper div to ensure the footer reaches the bottom */
+function setWrapperMinHeight() {
+  $('.wrapper').css('minHeight', window.innerHeight - $('.nav').height() - $('.footer').height() - 12);
+}
 
-  /* Sets the minimum height of the wrapper div to ensure the footer reaches the bottom */
-  function setWrapperMinHeight() {
-    $('.wrapper').css('minHeight', window.innerHeight - $('.nav').height() - $('.footer').height() - 10);
-  }
+$(document).ready(function(){
   /* Make sure the main div gets resized on ready */
   setWrapperMinHeight();
-
   /* Make sure the wrapper div gets resized whenever the screen gets resized */
   window.onresize = function() {
     setWrapperMinHeight();
   }
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 	$('.nav ul li').hover(
     function(){
         $(this).addClass('active');
@@ -42,4 +44,4 @@ $(document).ready(function() {
         $(this).removeClass('active');
     }
   );
-});
+});*/

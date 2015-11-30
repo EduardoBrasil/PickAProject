@@ -1,27 +1,107 @@
 <%- model_class = Project -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div class="project-show-container">
+  <div class="page-header">
+    <h1><%=t '.title', :default => @project.title %></h1>
+    <div id="percentage-container">
+      <div class="header-information">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10"
+            aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                10%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-overview">
+    <div class="project-overview-image col-md-7">
+      <% if @project.image_file.present? %>
+        <%= image_tag(@project.image_file.url(), class: "image-config") %>
+      <% else %>
+        <!-- [TODO] Add an alternative file -->
+      <% end %>
+    </div>
+
+    <div class="project-information col-md-5">
+      <dl class="dl-horizontal">
+        <dt>
+          <strong>
+            <%= model_class.human_attribute_name(:author) %>:
+          </strong>
+        </dt>
+        <dd>
+          <%= @project.author %>
+        </dd>
+
+        <dt>
+          <strong>
+            <%= model_class.human_attribute_name(:category) %>:
+          </strong>
+        </dt>
+        <dd>
+          <%= @project.category %>
+        </dd>
+
+        <dt>
+          <strong>
+            <%= model_class.human_attribute_name(:status) %>:
+          </strong>
+        </dt>
+        <dd>
+          <%= @project.status %>
+        </dd>
+
+        <dt>
+          <strong>
+            Created at:
+          </strong>
+        </dt>
+        <dd>
+          <%= @project.created_at.strftime("%d/%m/%Y") %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="project-about">
+    <div class="project-description col-md-7">
+      <dl>
+        <dt>
+          <strong>
+            <%= model_class.human_attribute_name(:description) %>:
+          </strong>
+        </dt>
+        <dd>
+          <%= @project.description %>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="project-contributors col-md-5">
+      <dl>
+        <dt>
+          <strong>
+            Contributors:
+          <strong>
+        </dt>
+        <dd>
+          Imagens dos contribuidores
+        </dd>
+    </dl>
+  </div>
+
+  <%= render partial: 'task_overview' %>
+
+  <div class= "centralize user-btns">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                  projects_path, :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_project_path(@project), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  project_path(@project),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @project.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type_project) %>:</strong></dt>
-  <dd><%= @project.type_project %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @project.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @project.status %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:percentage) %>:</strong></dt>
-  <dd><%= @project.percentage %></dd>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              projects_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_project_path(@project), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              project_path(@project),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>

@@ -1,3 +1,171 @@
-// Place all the styles related to the projects controller here.
+// Place all the styles related to the each-projects-container controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-header {
+	text-align: center;	
+}
+
+.projects-container {
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: block;
+	text-align: center;
+}
+
+.inner-projects-container {
+	margin:auto;
+	display: inline;
+	a:hover {
+  	background-color: transparent;
+  }
+}
+
+.each-project {
+	padding: 1px;
+	margin: 2%;
+  width: 27%;
+  display: inline-block;
+  background-color: #dbdbdb; /* Gray Dark */
+}
+
+.each-project .image {
+ 	width: 100%;
+}
+.each-project .title-author {
+	margin-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+}
+.each-project img {
+	width: auto;
+	height: 700x;
+	max-height: 700px;
+}
+
+.new-p-btn {
+	text-align: center;
+}
+
+.project-form {
+  width: 35%;
+  margin: auto;
+}
+
+.project-form #task-label{
+  text-align: center; 
+}
+
+.project-form .task-form{
+  width: 70%;
+  margin: auto;
+}
+
+.project-form .submit-buttons{
+  text-align: center;
+}
+
+.accept-inline{
+  margin-right: 3%;
+  float: left;
+}
+
+.project-form .btn{
+  margin: 1%;
+}
+
+.centralize {
+  clear:both;
+  display: block;
+  margin:auto;
+  text-align:center;
+}
+
+.project-show-container {
+  .header-information {
+    clear:both;
+    overflow: hidden;
+  }
+
+  .progress {
+    clear:both;
+    width: 50%;
+    display: block;
+    margin: auto;
+    position: relative;
+  }
+
+  .project-image-overview{
+    clear: both;
+    width: 50%;
+  }
+
+  .image-config{
+    width:100%;
+    height: 100%;
+  }
+
+  .project-information {
+    margin-top: 15%;
+  }
+  .project-overview {
+    clear: both;
+    width:50%;
+    margin:auto;
+  }
+
+  .project-about {
+    padding-top: 3%;
+    clear: both;
+    width: 50%;
+    margin:auto;
+  }
+
+  .project-description {
+    overflow: auto;
+  }
+
+  .tasks {
+    clear: both;
+    margin-top: 10%;;
+  }
+
+  .each-task {
+    float: left;
+    margin-top: 2%; 
+  }
+
+  .task-overview {
+    width: 100%;
+    clear: both;
+    display: inline-block;
+  }
+
+  .debug-line {
+    //class to debug
+    border: 1px dotted blue;
+  }
+  .task-image {
+    float: left;
+    width: 60%;
+  }
+
+  .task-information {
+    float: left;
+    width: 40%;
+    text-align: center;
+  }
+
+  .btn-to-modal {
+    margin: 6px;
+  }
+  .image-to-modal-prop {
+    width: 70px;
+    height: 70px;
+  }
+
+  .user-btns {
+    clear:both;
+    padding-top: 15%;
+  }
+}

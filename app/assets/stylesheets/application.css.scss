@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require adminlte
+ *= require skin-blue
  *= require_tree .
  *= require_self
  */
@@ -17,38 +19,6 @@
 //Import bootstrap-sprockets
 @import "bootstrap-sprockets";
 
-// Import flatly variables
-@import "bootswatch/flatly/variables";
-
 // Then bootstrap itself
 @import "bootstrap";
 
-// And finally bootswatch style itself
-@import "bootswatch/flatly/bootswatch";
-
-body {
-	min-height: 100%;
-}
-
-.navbar {
-	border-radius: 0px;
-}
-
-.footer {
-	clear: both;
-	margin-top: 10px;
-	border-top: 1px solid $gray-darker;
-	background-color: $gray-lighter;
-  color: $navbar-default-bg;
-	.container {
-  	padding: 10px 0 10px 0;
-  	a {
-	  	text-decoration: none;
-	  	background-color: $gray-lighter;
-	  }
-  }
-}
-
-#content {
-	min-height: 100%;
-}

@@ -1,44 +1,31 @@
+<!-- Set page title -->
 <%- model_class = Project -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:type_project) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:percentage) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.id, project_path(project) %></td>
-        <td><%= project.name %></td>
-        <td><%= project.type_project %></td>
-        <td><%= project.description %></td>
-        <td><%= project.status %></td>
-        <td><%= project.percentage %></td>
-        <td><%=l project.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_project_path(project), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      project_path(project),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_project_path,
-            :class => 'btn btn-primary' %>
+<!-- Main block to list all projects -->
+<div class="projects-container">
+  <div class="inner-projects-container">
+    <% @projects.each do |project| %>
+      <%= link_to(project) do %>
+        <div class="each-project">
+          <div class="image">
+            <%if project.image_file.present? %>
+              <%= image_tag(project.image_file.url(), class: "image center-block") %>
+            <%else%>
+              <%= image_tag("pap_default_banner.jpg", class: "image center-block") %>
+            <%end%>
+          </div>
+          <div class="title-author">
+            <h3><%= project.title %></h3>
+            <h6>By <%= project.author %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>  
+</div>
+
+<!-- Link to create a new project -->
+<%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary new-p-btn' %>
