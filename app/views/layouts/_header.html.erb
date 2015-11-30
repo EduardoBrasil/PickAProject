@@ -14,9 +14,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="http://localhost:3000/projects">Projects</a></li>
-        <li><a href="http://localhost:3000/projects/new">Start a Project</a></li>
-        <li><a href="#">Ranking</a></li>
+        <li><%= link_to "Projects", projects_path %></li>
+        <li><%= link_to "Start a Project", new_project_path %></li>
+        <li><%= link_to "Ranking", '#' %></li>
         <!--
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -39,9 +39,13 @@
         </div>        
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://localhost:3000/sessionns/sign_up">Sign Up</a></li>
-        <li><a href="http://localhost:3000/sessionns/sign_in">Log In</a></li>
-        <li><a <%= link_to "Sign out", destroy_sessionn_session_url, :method => :delete %>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

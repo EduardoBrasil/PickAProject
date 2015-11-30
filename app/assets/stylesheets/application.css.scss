@@ -22,3 +22,37 @@
 // Then bootstrap itself
 @import "bootstrap";
 
+// And finally bootswatch style itself
+@import "bootswatch/flatly/bootswatch";
+
+.navbar {
+	border-radius: 0px;
+}
+.app-nav, .app-content, .app-footer {
+	margin: 0;
+	border: 0px;
+}
+.app-footer {
+	vertical-align: text-bottom;
+}
+.footer {
+	margin-top: 10px;
+	border-top: 1px solid $gray-darker;
+	background-color: $gray-lighter;
+	.container {
+  	padding: 10px 0 10px 0;
+  	a {
+	  	text-decoration: none;
+	  	background-color: $gray-lighter;
+	  }
+  }
+}
+
+.app-form {
+  width: 35%;
+  margin: auto;
+}
+
+.control-group {
+	margin-bottom: 10px;
+}

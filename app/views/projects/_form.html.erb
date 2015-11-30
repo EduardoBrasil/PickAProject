@@ -1,4 +1,4 @@
-<div class="project-form">
+<div class="app-form">
   <%= nested_form_for @project, html: { class: "form-horizontal project" } do |f| %>
       <!-- Get possible errors in the empty project object -->
       <% if @project.errors.any? %>
@@ -62,8 +62,7 @@
       </div>
       <%= error_span(@project[:image_file]) %>
     </div>
-
-    <br>
+    <br />
 
     <!-- Get description. -->
     <div class="control-group">

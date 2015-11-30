@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_sessionn!
+  
+  # Use this controller as a resource of CanCan and Rolify
+  load_and_authorize_resource
 
   def index
     begin
@@ -43,6 +45,9 @@ class ProjectsController < ApplicationController
     # Create a new project with given params
     logger.debug "Trying to create a new project with given params"
     @project = Project.new(project_params)
+
+    # Associate the project created along with its owner
+    @project.owner_id = current_user.id
 
     # [REMOVE] should be a association
     @project.author = "Test Author"

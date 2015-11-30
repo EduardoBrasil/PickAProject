@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :sessionns
+=======
+  devise_for :users
+>>>>>>> users
   resources :projects
-  resources :users
   root 'pages#home'
 
   get 'help'=> 'pages#help'

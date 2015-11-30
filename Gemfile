@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-gem "devise"
+# Devise + CanCanCan + Rolify for authentication and authorization
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+
 # Less-rails
 gem "less-rails"
 # twitter bootstrap
