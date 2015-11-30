@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  devise_for :sessionns
-=======
   devise_for :users
->>>>>>> users
   resources :projects
   root 'pages#home'
 
