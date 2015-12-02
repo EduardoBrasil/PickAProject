@@ -2,6 +2,7 @@ class CreateTasks < ActiveRecord::Migration
   def change
 create_table :tasks do |t|
       t.belongs_to :project, index: true
+      t.belongs_to :user, index: true
       
       t.string :title
       # This Datetime variables will store the time an user

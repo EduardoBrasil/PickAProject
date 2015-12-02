@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    logger.debug "Trying to edit a project with id: #{ @project. id }" 
+    logger.debug "Trying to edit a project with id: #{ @project.id }" 
   end
 
   def create
@@ -47,10 +47,11 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     # Associate the project created along with its owner
-    @project.owner_id = current_user.id
-
+    #@project.owner_id = current_user.id
+    current_user.own_projects << @project
+    
     # [REMOVE] should be a association
-    @project.author = "Test Author"
+    @project.author = "Test Author" # current_user.name
     @project.percentage = 0 # Project begin, 0% done.
 
     respond_to do |format|
