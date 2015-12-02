@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 	has_many :tasks
 	has_many :projects, through: :tasks
 
+	# Attach a profile picture to an user
+	# Paperclip gem sintax for upload image files.
+	has_attached_file :profile_picture, :styles => {}, :default_url => "/images/:style/missing_profile_picture.png"
+	validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
+
 	# Add a default role to an user at its creation
 	private 
 		def default_role
