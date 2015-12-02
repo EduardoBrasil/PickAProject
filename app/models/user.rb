@@ -22,6 +22,21 @@ class User < ActiveRecord::Base
 	has_attached_file :profile_picture, :styles => {}, :default_url => "/images/:style/missing_profile_picture.png"
 	validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
 
+	# Validations
+	# Personal information
+	validates(:username, presence: true)
+	validates(:username, uniqueness: true)
+	validates(:name, numericality: { only_alphabetic: true })
+	validates(:phone, numericality: { only_integer: true })
+	validates(:phone, length: {in: PHONES_MIN_LENGTH..PHONES_MAX_LENGTH}, allow_blank: true)
+	validates(:sex, inclusion: { in: %w(Male Female), message: "\"%{value}\" is not a valid sex" })
+	validates(:country, numericality: { only_alphabetic: true })
+	validates(:state, numericality: { only_alphabetic: true })
+	validates(:city, numericality: { only_alphabetic: true })
+	# Professional information
+	validates(:education_level, numericality: { only_alphabetic: true })
+	validates(:institution, numericality: { only_alphabetic: true })
+
 	# Add a default role to an user at its creation
 	private 
 		def default_role
