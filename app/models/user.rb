@@ -26,16 +26,15 @@ class User < ActiveRecord::Base
 	# Personal information
 	validates(:username, presence: true)
 	validates(:username, uniqueness: true)
-	validates(:name, numericality: { only_alphabetic: true })
-	validates(:phone, numericality: { only_integer: true })
-	validates(:phone, length: {in: PHONES_MIN_LENGTH..PHONES_MAX_LENGTH}, allow_blank: true)
-	validates(:sex, inclusion: { in: %w(Male Female), message: "\"%{value}\" is not a valid sex" })
-	validates(:country, numericality: { only_alphabetic: true })
-	validates(:state, numericality: { only_alphabetic: true })
-	validates(:city, numericality: { only_alphabetic: true })
+	validates(:name, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
+	validates(:phone, numericality: { only_integer: true }, allow_blank: true)
+	validates(:sex, inclusion: { in: %w(Male Female), message: "\"%{value}\" is not a valid sex" }, allow_blank: true)
+	validates(:country, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
+	validates(:state, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
+	validates(:city, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
 	# Professional information
-	validates(:education_level, numericality: { only_alphabetic: true })
-	validates(:institution, numericality: { only_alphabetic: true })
+	validates(:education_level, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
+	validates(:institution, format: { with: /\a[a-za-z]+\z/, message: "this field only allows letters" }, allow_blank: true)
 
 	# Add a default role to an user at its creation
 	private 
